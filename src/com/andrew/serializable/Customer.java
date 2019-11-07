@@ -1,6 +1,8 @@
 package com.andrew.serializable;
 
+import java.util.List;
 import java.io.Serializable;
+import java.util.LinkedList;
 
 public class Customer implements Serializable {
     private static final long serialVersionUID = 2L;
@@ -9,6 +11,16 @@ public class Customer implements Serializable {
     private transient String sex;	//no serialized field
  
     private double baseFeePerHour = 18.88;
+	List<Double> fees = new LinkedList<Double>() {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 9168445254393236900L;
+
+		{
+			push(baseFeePerHour);
+		}
+	};
     static {
         System.out.println("Static initial code block.");
     }
@@ -46,5 +58,6 @@ public class Customer implements Serializable {
     	if (generousBoss > 200)
     		generousBoss = 200;
     	baseFeePerHour+=generousBoss;
+    	fees.set(0, baseFeePerHour);
     }
 }
