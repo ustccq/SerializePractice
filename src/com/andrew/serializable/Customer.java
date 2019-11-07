@@ -35,4 +35,16 @@ public class Customer implements Serializable {
     public double plusFee(double liberal) {
     	return baseFeePerHour + (liberal > 0 ? liberal : 0);
     }
+    
+    public double baseFee(){
+    	return baseFeePerHour;
+    }
+    
+    public void plusBaseFee(double generousBoss){
+    	if (generousBoss < 0.01)
+    		generousBoss = 0.01;
+    	if (generousBoss > 200)
+    		generousBoss = 200;
+    	baseFeePerHour+=generousBoss;
+    }
 }
