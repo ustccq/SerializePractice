@@ -5,23 +5,26 @@ import java.io.Serializable;
 public class Customer implements Serializable {
     private static final long serialVersionUID = 2L;
     private String name;
-    private static int count;
-    private transient String sex;
+    private static int count;//no serialized field
+    private transient String sex;	//no serialized field
  
     static {
-        System.out.println("调用静态代码块");
+        System.out.println("Static initial code block.");
     }
  
     public Customer() {
-        System.out.println("无参构造方法");
+        System.out.println("Ctor with NO parameters.");
+    }
+    
+    public String name(){
+    	return name;
     }
  
     public Customer(String name, String sex) {
-        System.out.println("有参构造方法");
+        System.out.println("Ctor with parameters.");
         this.name = name;
         this.sex = sex;
         count++;
- 
     }
  
     public String toString() {

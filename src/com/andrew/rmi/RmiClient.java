@@ -7,10 +7,26 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.RemoteObject;
 
+import com.andrew.serializable.Customer;
+
 public class RmiClient {
 
+	public final static int port = 1113;
+	private final static String hostAndPort = "192.168.0.111:" + port;
 	public static void main(String[] args) {
-		
+		try {
+			Calculator cal = RmiClient.getCalculator(hostAndPort);
+			System.out.println("Rmi Calculator getName():" + cal.getName());
+			cal.sayHello();
+			System.out.println("Rmi Calculator sayHello():");
+			System.out.println("Rmi Calculator getName():" + cal.calculateFee(new Customer("Lucy", "girl")));
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NotBoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	private static Calculator getCalculator(String hostAndPort) 
@@ -33,7 +49,7 @@ public class RmiClient {
             final Calculator cal = (Calculator) remobj;
             if (remobj instanceof RemoteObject){
                 RemoteObject robj = (RemoteObject) remobj;
-                System.out.println("Using remote object: "+robj.getRef().remoteToString()); // NOSONAR
+                System.out.println("Using remote object: "+robj.getRef().remoteToString());
             }
             return cal;
         }
