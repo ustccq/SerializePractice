@@ -11,7 +11,7 @@ public class Customer implements Serializable {
     private transient String sex;	//no serialized field
  
     private double baseFeePerHour = 18.88;
-	List<Double> fees = new LinkedList<Double>() {
+    LinkedList<Double> fees = new LinkedList<Double>() {
 		/**
 		 * 
 		 */
@@ -61,7 +61,9 @@ public class Customer implements Serializable {
     		generousBoss = 0.01;
     	if (generousBoss > 200)
     		generousBoss = 200;
+    	System.err.println("base fee add:" + generousBoss);
     	baseFeePerHour+=generousBoss;
     	fees.set(0, baseFeePerHour);
+    	System.err.println("base fee get from collection:" + fees.get(0));
     }
 }
