@@ -20,9 +20,13 @@ public class RmiClient {
 			cal.sayHello();
 			System.out.println("Rmi Calculator sayHello():");
 			Customer lucy = new Customer("Lucy", "waitress girl");
-			System.out.println("Rmi Calculator getName():" + cal.calculateFee(lucy));
+			System.out.println("Rmi Calculator calculateFee():" + cal.calculateFee(lucy));
 			System.out.println(lucy.baseFee());
 			System.out.println(lucy.baseFeeInCollection());
+			
+			System.out.println(cal.waiter().baseFeeInCollection());
+			cal.waiter().plusBaseFee(11.11);
+			System.out.println(cal.waiter().baseFeeInCollection());
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

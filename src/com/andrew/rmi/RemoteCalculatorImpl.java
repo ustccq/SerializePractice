@@ -19,9 +19,11 @@ public class RemoteCalculatorImpl extends UnicastRemoteObject implements Calcula
 	public static String rmiRegisterKey = "MeowlomoCalculator";
 	
 	private int rmiRegistryPort = 1113;
+	private Customer waiter = new Customer("Barly", "Boy");
 	
 	public static void startServer(int rmiRegistryPort) throws RemoteException {
 		RemoteCalculatorImpl calculator = new RemoteCalculatorImpl(rmiRegistryPort);
+		calculator.waiter.plusBaseFee(23.34);
 		calculator.init();
 	}
 	
@@ -73,6 +75,11 @@ public class RemoteCalculatorImpl extends UnicastRemoteObject implements Calcula
 		c.plusBaseFee(58.88);
 		System.out.println(c.toString());
 		return c.plusFee(100);
+	}
+
+	@Override
+	public Customer waiter() throws RemoteException {
+		return waiter;
 	}
 
 }

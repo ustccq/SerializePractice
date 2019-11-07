@@ -8,4 +8,5 @@ public interface Calculator extends Remote{
 	String getName() throws RemoteException;
 	void sayHello() throws RemoteException;
 	Double calculateFee(Customer c) throws RemoteException;
+	Customer waiter() throws RemoteException;
 }
