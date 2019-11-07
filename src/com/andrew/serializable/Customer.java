@@ -52,6 +52,10 @@ public class Customer implements Serializable {
     	return baseFeePerHour;
     }
     
+    public double baseFeeInCollection(){
+    	return fees.get(0);
+    }
+    
     public void plusBaseFee(double generousBoss){
     	if (generousBoss < 0.01)
     		generousBoss = 0.01;
