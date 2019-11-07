@@ -69,9 +69,8 @@ public class RemoteCalculatorImpl extends UnicastRemoteObject implements Calcula
 
 	@Override
 	public Double calculateFee(Customer c) throws RemoteException {
-
 		System.out.println(c.toString());
-		return new Double(14.56d);
+		return c.plusFee(100);
 	}
 
 }

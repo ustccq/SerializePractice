@@ -8,6 +8,7 @@ public class Customer implements Serializable {
     private static int count;//no serialized field
     private transient String sex;	//no serialized field
  
+    private double baseFeePerHour = 18.88;
     static {
         System.out.println("Static initial code block.");
     }
@@ -28,6 +29,10 @@ public class Customer implements Serializable {
     }
  
     public String toString() {
-        return "[ " + count + " " + name + " " + sex + " ]";
+        return "[ " + count + " " + name + " " + sex + " " + baseFeePerHour + " ]";
+    }
+    
+    public double plusFee(double liberal) {
+    	return baseFeePerHour + (liberal > 0 ? liberal : 0);
     }
 }
