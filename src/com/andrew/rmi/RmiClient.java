@@ -21,6 +21,7 @@ public class RmiClient {
 			System.out.println("Rmi Calculator sayHello():");
 			Customer lucy = new Customer("Lucy", "waitress girl");
 			System.out.println("Rmi Calculator getName():" + cal.calculateFee(lucy));
+			System.out.println(lucy.baseFee());
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
