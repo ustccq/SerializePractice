@@ -19,14 +19,19 @@ public class RmiClient {
 			System.out.println("Rmi Calculator getName():" + cal.getName());
 			cal.sayHello();
 			System.out.println("Rmi Calculator sayHello():");
-			Customer lucy = new Customer("Lucy", "waitress girl");
-			System.out.println("Rmi Calculator calculateFee():" + cal.calculateFee(lucy));
-			System.out.println(lucy.baseFee());
-			System.out.println(lucy.baseFeeInCollection());
+//			Customer lucy = new Customer("Lucy", "waitress girl");
+//			System.out.println("Rmi Calculator calculateFee():" + cal.calculateFee(lucy));
+//			System.out.println(lucy.baseFee());
+//			System.out.println(lucy.baseFeeInCollection());
 			
 			System.out.println(cal.baseFeeInCollection());
 			cal.plusBaseFee(11.11);
 			System.out.println(cal.baseFeeInCollection());
+			cal.plusBaseFee(22.11);
+			System.out.println(cal.baseFeeInCollection());
+			cal.waiter().plusBaseFee(33.11);
+			System.out.println(cal.baseFeeInCollection());
+			System.out.println(cal.waiter().baseFeeInCollection());
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
