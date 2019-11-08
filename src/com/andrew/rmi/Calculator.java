@@ -9,4 +9,6 @@ public interface Calculator extends Remote{
 	void sayHello() throws RemoteException;
 	Double calculateFee(Customer c) throws RemoteException;
 	Customer waiter() throws RemoteException;
+	double baseFeeInCollection() throws RemoteException;
+	void plusBaseFee(double f) throws RemoteException;
 }

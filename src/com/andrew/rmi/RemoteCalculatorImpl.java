@@ -2,6 +2,7 @@ package com.andrew.rmi;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.nio.file.Watchable;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -82,4 +83,13 @@ public class RemoteCalculatorImpl extends UnicastRemoteObject implements Calcula
 		return waiter;
 	}
 
+	@Override
+	public double baseFeeInCollection() throws RemoteException {
+		return waiter.baseFeeInCollection();
+	}
+
+	@Override
+	public void plusBaseFee(double f) throws RemoteException {
+		waiter.plusBaseFee(f);
+	}
 }

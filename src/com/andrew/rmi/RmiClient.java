@@ -12,7 +12,7 @@ import com.andrew.serializable.Customer;
 public class RmiClient {
 
 	public final static int port = 1113;
-	private final static String hostAndPort = "192.168.0.111:" + port;
+	private final static String hostAndPort = "10.0.100.142:" + port;
 	public static void main(String[] args) {
 		try {
 			Calculator cal = RmiClient.getCalculator(hostAndPort);
@@ -24,9 +24,9 @@ public class RmiClient {
 			System.out.println(lucy.baseFee());
 			System.out.println(lucy.baseFeeInCollection());
 			
-			System.out.println(cal.waiter().baseFeeInCollection());
-			cal.waiter().plusBaseFee(11.11);
-			System.out.println(cal.waiter().baseFeeInCollection());
+			System.out.println(cal.baseFeeInCollection());
+			cal.plusBaseFee(11.11);
+			System.out.println(cal.baseFeeInCollection());
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
