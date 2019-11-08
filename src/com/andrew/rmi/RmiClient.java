@@ -30,6 +30,9 @@ public class RmiClient {
 			cal.plusBaseFee(22.11);
 			System.out.println(cal.baseFeeInCollection());
 			cal.waiter().plusBaseFee(33.11);
+			System.out.println(cal.waiter().baseFeeInCollection());
+			cal.waiter().plusBaseFee(33.11);
+			System.out.println(cal.waiter().baseFeeInCollection());
 			System.out.println(cal.baseFeeInCollection());
 			System.out.println(cal.waiter().baseFeeInCollection());
 		} catch (RemoteException e) {
