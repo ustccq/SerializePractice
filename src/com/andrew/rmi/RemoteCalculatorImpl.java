@@ -91,5 +91,6 @@ public class RemoteCalculatorImpl extends UnicastRemoteObject implements Calcula
 	@Override
 	public void plusBaseFee(double f) throws RemoteException {
 		waiter.plusBaseFee(f);
+		System.err.println(waiter.baseFeeInCollection());
 	}
 }
