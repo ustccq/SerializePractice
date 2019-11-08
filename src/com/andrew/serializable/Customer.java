@@ -64,6 +64,6 @@ public class Customer implements Serializable {
     	System.err.println("base fee add:" + generousBoss);
     	baseFeePerHour+=generousBoss;
     	fees.set(0, baseFeePerHour);
-    	System.err.println(this.hashCode() + name + "base fee get from collection:" + fees.get(0));
+    	System.err.println(String.format("%d $s base fee get from collection:%d", this.hashCode(), name, "base fee get from collection:", fees.get(0)));
     }
 }
